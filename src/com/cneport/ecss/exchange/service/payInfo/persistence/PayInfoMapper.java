@@ -1,0 +1,1 @@
+package com.cneport.ecss.exchange.service.payInfo.persistence;import com.cneport.ecss.exchange.service.payInfo.entity.PayInfo;import java.util.Map;public abstract interface PayInfoMapper{  public abstract void insertPayInfo(PayInfo paramPayInfo);  public abstract int countPayInfo(Map<String, String> paramMap);}

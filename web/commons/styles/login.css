@@ -1,0 +1,43 @@
+
+.login-icon{
+	background: url(../images/login.png) no-repeat !important;
+}
+
+.btn-login{
+	background: url(../images/blogin.png) no-repeat !important;
+}
+
+.btn-login-reset{
+	background: url(../images/login-reset.png) no-repeat !important;
+}
+
+
+body {
+	margin: 0;
+	padding: 0;
+	background: #2E95D3;
+}
+
+#loginArea {
+	margin: auto;
+	background: url(../images/Winter.jpg) no-repeat;
+	align: center;
+	width: 1500;
+	height: 800;
+}
+
+
+.loginImages {
+	/*
+	margin: 0 auto;
+	background: url(../images/loginButton.jpg) no-repeat ! important;
+	overflow: hidden;
+	height: 100%;
+	width: 100%;
+	*/
+}
+
+
+#dddd{
+	margin:0 auto; 
+}

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:integration="http://www.springframework.org/schema/integration"
+	xmlns:file="http://www.springframework.org/schema/integration/file"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+			http://www.springframework.org/schema/task 
+	        http://www.springframework.org/schema/task/spring-task-3.2.xsd
+			http://www.springframework.org/schema/integration
+			http://www.springframework.org/schema/integration/spring-integration-2.2.xsd
+			http://www.springframework.org/schema/integration/file
+			http://www.springframework.org/schema/integration/file/spring-integration-file-2.2.xsd">
+ 
+    <!-- 核心通道定义,所有通道内部传输的数据类型都是字节数组byte[] -->
+    <integration:channel id="receiveChannel" />
+    <integration:channel id="sendChannel" />
+    <integration:channel id="receiveBackupChannel" />
+    <integration:channel id="sendBackupChannel" />
+    <integration:channel id="sendErrorChannel" />
+    <integration:channel id="receiveErrorChannel" />
+    
+    <!-- 接收报文处理器 -->
+    <integration:service-activator input-channel="receiveChannel"  ref="importServiceActivator" method="receiveMessage"/>
+    
+    <!-- 接收报文处理器实现类定义 -->
+    <bean id="importServiceActivator" class="com.cneport.tophare.integration.ImportServiceActivator">
+      	 <property name="integrationChannelResover" ref="integrationChannelResover" />
+         <property name="messageProcessors">
+         	<list>
+         		<ref bean="xmlMessageReceiver" /> 
+         	</list>
+         </property>
+    </bean>
+    
+    <!-- 输出对象处理器实现类定义 -->
+    <bean id="exportServiceActivator" class="com.cneport.tophare.integration.ExportServiceActivator">
+      	 <property name="integrationChannelResover" ref="integrationChannelResover" />
+    </bean>
+   
+    <!-- 对象到xml报文转换器 -->
+    <bean id="objectToByteArrayJaxbMarshallerTransformer" class="com.cneport.tophare.integration.transformer.jaxb.marshal.ObjectToByteArrayJaxbMarshallerTransformer">
+    	<property name="formated" value="true" />
+    </bean>
+    
+    <!-- xml到对象报文转换器 -->
+    <bean id="byteArrayToObjectJaxbUnmarshallerTransformer" class="com.cneport.tophare.integration.transformer.jaxb.unmarshal.ByteArrayToObjectJaxbUnmarshallerTransformer">
+         <property name="scanPackages">
+         	<list>
+         	    <value>com.cneport.ecss.exchange.service.entity</value>
+         	</list>
+         </property>
+    </bean>
+</beans>

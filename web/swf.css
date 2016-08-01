@@ -1,0 +1,16 @@
+.add{
+    background-image: url(images/add.png) !important;
+}
+.up{
+    background-image: url(images/upload_.png) !important;
+}
+
+.delete{
+    background-image: url(images/delete.gif) !important;
+}
+.delete2{
+    background-image: url(images/trash_16.gif) !important;
+}
+.delete3{
+	background-image: url(images/btn-save.png) !important;
+}

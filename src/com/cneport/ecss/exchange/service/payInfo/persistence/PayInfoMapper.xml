@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cneport.ecss.exchange.service.payInfo.persistence.PayInfoMapper">
+  
+      <select id="countPayInfo" parameterType="Map" resultType="int">
+  		SELECT count(*)  FROM PAYMENT_INFO where PAYMENT_CODE=#{paymentCode} and PAYMENT_NO=#{paymentNo}
+  		</select>
+  
+  	<insert id="insertPayInfo" 	parameterType="com.cneport.ecss.exchange.service.payInfo.entity.PayInfo">
+  	insert into PAYMENT_INFO
+          (SEQ_NO,CUSTOMS_CODE,status,PAYMENT_CODE,PAYMENT_NAME,PAYMENT_TYPE,PAYMENT_NO,CHARGE,CURRENCY,CUSTOMER_FLAG,CUSTOMER_DATA,NOTE,IE_TYPE,UPDATE_TIME) 
+	  values(#{seqNo},'4600','1',#{PPaymentCode},#{PPaymentName},#{PPaymentType},#{PPaymentNo},#{PCharge},
+	  #{PCurrency},#{PCustomerFlag},#{PCustomerData},
+	 #{PNote},#{PIEType},sysdate)
+	</insert>
+	
+</mapper>

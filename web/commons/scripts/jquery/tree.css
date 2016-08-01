@@ -1,0 +1,156 @@
+body,ul,li,ol{
+	/* Simple page reset */
+	margin:0 0 0 0;
+	padding:0px;
+	overflow-x:hidden;
+	background-color:#FFF
+}
+
+.firstpage_out_div{
+	width: 100%;
+	height: 40px;
+	padding: 0px 6px 5px;
+}
+
+.firstpage_span{
+	background:url(img/index_ico.png) no-repeat left;
+	width: 100px; 
+	padding: 20px 6px 5px; 
+	height:50px;
+	position:absolute;
+	left:20;
+	top:0;  
+	display:block;
+}
+
+.firstpage_div{
+	width: 29%;
+	height: 16px;
+	background-color:#fff; 
+	border-color: #28A7E1;
+	border-width: 1 1 1 1;
+	border-bottom-style:solid;
+	border-top-style:solid;
+	border-left-style:solid;
+	border-right-style:solid;
+	cursor: pointer;
+	font-family:BPreplay,Arial,Helvetica,sans-serif;
+	font-size:14px;
+	font-weight:bold;  
+	padding:10 45px ;
+} 
+
+ul{
+	margin:0 0 0 0;
+	padding:0; 
+}
+
+ul.container{
+	/* The topmost UL */
+	width:100%;
+	margin:0 0 0 0;
+	padding:0px;
+	background-color:#1B5994;
+}
+
+ul.container li.menu{
+	/* The main list elements */
+	padding:0 0;
+	width:100%;	
+	list-style:none;
+	text-align:left;
+	font-weight:bold; 
+}
+
+ul.container li.button a.tittle_bg{
+	/* The section titles */
+	display:block;
+	font-family:BPreplay,Arial,Helvetica,sans-serif;
+	font-size:14px;
+	height:22px !important;
+	height:34px;
+	overflow:hidden;
+	padding:10px 40px 3;
+	position:relative;
+	width:250px;
+} 
+
+ul.container li.button a span{
+	/* This span acts as the right part of the section's background */
+	height:35px;
+	position:absolute;
+	left:10;
+	top:0;
+	width:100%;
+	display:block;
+}
+
+/* Setting up different styles for each section color */
+
+ul.container li.button{background:url(img/tittle_bg.jpg) repeat-x top left #1B5994; }
+ul.container li.button a.tittle_bg{color:#FFFFFF;}
+ul.container li.button a.tittle_bg span.jgtg_ico{ background:url(img/jgtg_ico.png) no-repeat left;}
+ul.container li.button a.tittle_bg span.gs_ico{ background:url(img/gs_ico.png) no-repeat left;}
+ul.container li.button a.tittle_bg span.sd_ico{ background:url(img/sd_ico.png) no-repeat left;}
+ul.container li.button a.tittle_bg span.zhtj_ico{ background:url(img/zhtj_ico.png) no-repeat left;}
+ul.container li.button a.tittle_bg span.jgmy_ico{ background:url(img/ico-jgmy.gif) no-repeat left;}
+ul.container li.button a.tittle_bg span.fxgl_ico{ background:url(img/fxgl_ico.png) no-repeat left;}
+ul.container li.button a.tittle_bg span.qygl_ico{ background:url(img/qygl_ico.png) no-repeat left;}
+ul.container li.button a.tittle_bg span.spgl_ico{ background:url(img/spgl_ico.png) no-repeat left;}
+ul.container li.button a.tittle_bg span.nkjc_ico{ background:url(img/nkjc_ico.png) no-repeat left;}
+ul.container li.button a.tittle_bg span.jc_ico{ background:url(img/jc_ico.png) no-repeat left;}
+ul.container li.button a.tittle_bg span.hy_ico{ background:url(img/hy_ico.png) no-repeat left;}
+ul.container li.button a.tittle_bg span.js_ico{ background:url(img/js_ico.png) no-repeat left;}
+
+ul.container li.button a.tittle_bg span.qiye_ico{ background:url(img/qiye_ico.png) no-repeat left;}
+ul.container li.button a.tittle_bg span.geren_ico{ background:url(img/geren_ico.png) no-repeat left;}
+ul.container li.button a.tittle_bg span.xingyou_ico{ background:url(img/xingyou_ico.png) no-repeat left;}
+ul.container li.button a.tittle_bg span.jinkou_ico{ background:url(img/jinkou_ico.png) no-repeat left;}
+ul.container li.button a.tittle_bg span.chukou_ico{ background:url(img/chukou_ico.png) no-repeat left;}
+ul.container li.button a.tittle_bg span.ruchuqu_ico{ background:url(img/ruchuqu_ico.png) no-repeat left;}
+ul.container li.button a.tittle_bg span.car_ico{ background:url(img/car_ico.png) no-repeat left;}
+ul.container li.button a.tittle_bg span.hefang_ico{ background:url(img/hefang_ico.png) no-repeat left;}
+ul.container li.button a.tittle_bg span.fensong_ico{ background:url(img/fensong_ico.png) no-repeat left;}
+ul.container li.button a.tittle_bg span.hefang_ico{ background:url(img/hefang_ico.png) no-repeat left;}
+
+ul.container li.dropdown{
+	/* The expandable lists */
+	background-color: #1B5994;
+	display:none;
+	padding-top:0px;
+	width:100%; 
+}
+
+ul.container .dropdown li{
+	/* Each element in the expandable list */
+	background-color:#1b5994;
+	border:0 solid #1b5994;
+	color:#CCCCCC;
+	margin:0px 0 0 0;
+	padding:4px 20px;
+	width: 250px;
+	font-size:13px;
+}
+
+ul.container li a span.file_ico{
+	background:url(img/file_ico.png) no-repeat; 
+	width: 20px;
+	height: 15px;
+	left:0;
+	display:inline-block; 
+}
+
+ul.container a {
+	color:#FFFFFF;
+	text-decoration:none;
+	outline:none; 
+	cursor: pointer;
+}
+.menu ul{ 
+	background-color:#1B5994;
+}
+
+/* The hover effects */
+ul.container a:hover{
+	text-decoration: underline;
+}

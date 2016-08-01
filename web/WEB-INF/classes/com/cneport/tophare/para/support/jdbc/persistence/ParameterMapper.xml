@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cneport.tophare.para.support.jdbc.persistence.ParameterMapper"> 
+<cache/>
+ <select id="queryParameterEntry" resultType="com.cneport.tophare.para.ParameterEntry">
+	    select 
+	          ${tableCodeName} as code,
+	          ${tableCodeDescriptionName} as name
+	    from  ${tableName}
+	          order by ${tableCodeName} 
+ </select> 
+ 
+ <select id="queryParameterNameByCode" resultType="com.cneport.tophare.para.ParameterEntry">
+	    select 
+	          ${tableCodeName} as code,
+	          ${tableCodeDescriptionName} as name
+	    from  ${tableName}
+	    where ${tableCodeName}=#{codeValue,jdbcType=VARCHAR}
+ </select>
+ 
+<select id="unitByCode" resultType="String" parameterType="String">
+	    select  UNIT_NAME  from UNIT
+	    where UNIT_CODE = #{UNIT_CODE,jdbcType=VARCHAR}
+  </select>
+  <!-- 国籍 -->
+  <select id="countryByCode" resultType="String" parameterType="String">
+	    select COUN_C_NAME from COUNTRY
+	    where COUNTRY_CODE = #{COUNTRY_CODE,jdbcType=VARCHAR}
+  </select>
+  <!-- 币值 -->
+  <select id="currByCode" resultType="String" parameterType="String">
+	    select CURR_SYMB, CURR_NAME from CURR
+	    where CURR_CODE = #{CURR_CODE,jdbcType=VARCHAR}
+  </select>
+   <!-- 征减免税方式 -->
+  <select id="dutyModeByCode"  resultType="String" parameterType="String">
+	    select DUTY_SPEC from LEVYMODE
+	    where DUTY_MODE = #{DUTY_MODE,jdbcType=VARCHAR}
+  </select>
+  
+  <!--  运输方式代码表  -->
+ <select id="trafMode"  resultType="String" parameterType="String">
+ 		select TRAF_SPEC FROM TRANSF 
+	    where TRAF_CODE = #{TRAF_CODE,jdbcType=VARCHAR}
+  </select>
+  
+  <!--  监管方式代码表  -->
+   <select id="tradeMode"  resultType="String" parameterType="String">
+ 		select ABBR_TRADE FROM TRADE 
+	    where TRADE_MODE = #{TRADE_MODE,jdbcType=VARCHAR}
+  </select>
+  <!--  征免方式代码表  -->
+   <select id="cutMode"  resultType="String" parameterType="String">
+   		select ABBR_CUT FROM LEVYTYPE 
+   		where CUT_MODE = #{CUT_MODE,jdbcType=VARCHAR}
+  </select>
+  <!--  装运港代码表  -->
+  <select id="port"  resultType="String" parameterType="String">
+ 		select PORT_C_NAME FROM PORT
+ 		where PORT_CODE = #{PORT_CODE,jdbcType=VARCHAR}
+  </select>
+  <!--  境内目的地代码表  -->
+  <select id="districtCode"  resultType="String" parameterType="String">
+  		select DISTRICT_NAME FROM DISTRICT
+  		where DISTRICT_CODE =#{DISTRICT_CODE,jdbcType=VARCHAR}
+  </select>
+  <!--  成交方式代码表  -->
+   <select id="transMode"  resultType="String" parameterType="String">
+  		select TRANS_SPEC FROM TRANSAC
+  		where TRANS_MODE = #{TRANS_MODE,jdbcType=VARCHAR}
+  </select>
+  <!--  包装种类代码表  -->
+   <select id="wrapType"  resultType="String" parameterType="String">
+  		select WRAP_NAME FROM WRAP 
+  		where WRAP_CODE = #{WRAP_CODE,jdbcType=VARCHAR}
+  </select>
+  <!--  用途代码表  -->
+   <select id="useTo"  resultType="String" parameterType="String">
+  		SELECT USEDT_NAME FROM USED_TO
+  		where USEDT_CODE =#{USEDT_CODE,jdbcType=VARCHAR}
+  </select>
+ 
+ <!--  关区代码表  -->
+ <select id="customs"  resultType="String" parameterType="String">
+  		select ABBR_CUST FROM CUSTOMS 
+  		where CUSTOMS_CODE = #{CUSTOMS_CODE,jdbcType=VARCHAR}
+ </select>
+ <!--  关区代码表  -->
+ <select id="customsStr" resultType="String" parameterType="String">
+  		select ABBR_CUST FROM CUSTOMS 
+  		where CUSTOMS_CODE = #{customsCode,jdbcType=VARCHAR}
+ </select>
+ <!--  监管方式  -->
+ <select id="trade"  resultType="String" parameterType="String">
+  		select ABBR_TRADE FROM TRADE 
+  		where TRADE_MODE = #{TRADE_MODE,jdbcType=VARCHAR}
+  </select>
+</mapper>

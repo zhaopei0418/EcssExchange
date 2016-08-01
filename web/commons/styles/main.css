@@ -1,0 +1,309 @@
+body {
+	background-color: #FFF;
+	height: 100%;
+	width: 100%;
+	margin: 0 auto;
+	font-size: Arial;
+	font-family: "微软雅黑";
+}
+ 
+#banner {
+	height: 68px;
+	background-image: url(../images/top_bg.jpg);
+	background-repeat: repeat-x;
+	margin: 0 auto;
+}
+
+.x-grid-row-pink {
+	background-color: 'red'
+}
+
+.my-x-item-disabled {
+	cursor: default;
+    opacity: .6;
+    -moz-opacity: .6;
+    filter: alpha(opacity=60);
+    color: #000;
+}
+
+.mainTopMenu {
+	background-image: url(../images/menu.png);
+	background-position: right center;
+	background-repeat: no-repeat;
+	height: 25px;
+}
+
+.mainFooter {
+	background-image: url(../images/footer.png);
+	background-position: right center;
+	background-repeat: repeat-x;
+	height: 32px;
+}
+
+.mainLeftTree {
+	background-repeat: no-repeat;
+	background-color: #1b5994;
+	bodyStyle: 'padding-top:20px';
+}
+
+.leafNode {
+	background-image: url(../images/leafNode.png) !important;
+}
+
+.parentNode {
+	background-image: url(../images/parentNode.png) !important;
+}
+
+.mainWelcome {
+	background-image: url(../images/welcome.jpg) !important;
+	background-position: right center;
+	background-repeat: repeat-x;
+	height: 678px;
+}
+
+.menu-system {
+	background-image: url('../images/setting.gif') !important;
+}
+
+.menu-company {
+	background-image: url('../images/company_menu.png') !important;
+}
+
+.menu-appuser {
+	background-image: url('../images/report_user.png') !important;
+}
+
+.menu-role {
+	background-image: url('../images/role_menu.png') !important;
+}
+
+.btn-logout {
+	background-image: url('../images/logout.png') !important;
+}
+
+.field-readonly {
+	background: #F0F8FF;
+}
+
+.btn-form {
+	background-image: url('../images/form.gif') !important;
+}
+
+.btn-distributeRole {
+	background-image: url('../images/btn-distributeRole.png') !important;
+}
+
+.btn-authorizeRole {
+	background-image: url('../images/btn-authorizeRole.png') !important;
+}
+
+.btn-print {
+	background-image: url('../images/printer.png') !important;
+}
+
+.btn-yes {
+	background-image: url('../images/btn-yes.png') !important;
+}
+
+.btn-no {
+	background-image: url('../images/btn-no.png') !important;
+}
+
+.btn-declare {
+	background-image: url('../images/btn-declare.png') !important;
+}
+
+.btn-add {
+	background-image: url('../images/btn-add.png') !important;
+}
+
+.btn-edit {
+	background-image: url('../images/btn-edit.png') !important;
+}
+
+.btn-delete {
+	background-image: url('../images/delete.png') !important;
+}
+
+.btn-check {
+	background-image: url('../images/btn-check.png') !important;
+}
+
+.btn-confirm {
+	background-image: url('../images/btn-confirm.png') !important;
+}
+
+.btn-search {
+	background-image: url('../images/search.png') !important;
+}
+
+.btn-searchAll {
+	background-image: url('../images/searchAll.png') !important;
+}
+
+.btn-reset {
+	background-image: url('../images/icon_reset.png') !important;
+}
+
+.btn-save {
+	background-image: url('../images/btn-save.png') !important;
+}
+
+.btn-modifyInBillVeNo {
+	background-image: url('../images/btn-modifyInBillVeNo.png') !important;
+}
+
+.btn-modifyVeNo {
+	background-image: url('../images/btn-modifyVeNo.png') !important;
+}
+
+.btn-ok {
+	background-image: url('../images/btn-ok.png') !important;
+}
+
+.btn-cancel {
+	background-image: url('../images/btn-cancel.png') !important;
+}
+
+.btn-query {
+	background-image: url('../images/btn-query.png') !important;
+}
+
+.btn-refresh {
+	background-image: url('../images/btn-refresh.png') !important;
+}
+
+.page-first{
+	background-image: url(../images/page-first.png) !important;
+}
+
+.page-prev{
+	background-image: url(../images/page-prev.png) !important;
+}
+
+.page-next{
+	background-image: url(../images/page-next.png) !important;
+}
+
+.page-last{
+	background-image: url(../images/page-last.png) !important;
+}
+
+.page-refresh{
+	background-image: url(../images/page-refresh.png) !important;
+}
+
+.btn-ondec {
+	background: url('../images/delete.png') no-repeat !important;
+}
+
+.btn-orange {
+	background: url('../images/information.png') no-repeat !important;
+}
+
+.btn-yellow {
+	background: url('../images/arrow_switch.png') no-repeat !important;
+}
+
+.btn-red {
+	background: url('../images/cencel.png') no-repeat !important;
+}
+
+.red-row {
+	background-color: red;
+}
+
+.ptrtest2 {
+	background-color: moccasin
+}
+
+.x-item-readonly, textarea.x-item-readonly {
+	background-color: #EFEFEF;
+	background-image: none;
+}
+
+.x-item-allowblank, textarea.x-item-allowblank {
+	background-color: #FFFFE1;
+	background-image: none;
+}
+
+/*按钮、标签的文字颜色*/
+span.x-panel-header-text,
+.x-panel-tbar button.x-btn-text,
+.x-panel-tbar label.x-form-cb-label,
+.xtb-text {
+	color: #000;
+}
+/*按钮、标签的文字 聚焦时的样式*/
+.x-btn-menu-active .x-btn-text, 
+.x-btn-click .x-btn-text, 
+.x-btn-pressed .x-btn-text,
+.x-btn-over .x-btn-text,
+.x-btn.x-btn-text-icon.x-btn-over .x-btn-text{
+    color: blue !important;
+    /*font-weight: bold;*/
+}
+/*日期控件年月份的文字 聚焦时的样式*/
+.x-date-middle .x-btn.x-btn-text-noicon.x-btn-over .x-btn-text{
+    color: white !important;
+}
+
+.orderTip{font-size:18px; color:green;}
+
+/*表格单元格内容长的时候换行*/
+.x-grid3-cell-inner{
+	white-space:normal;
+}
+
+/*信息弹出框样式,主要作用:使信息弹出框显示在最上面*/ 
+#msg-div{ 
+    position: absolute; 
+    left: 35%; 
+    top: 10px; 
+    width: 250px; 
+    z-index: 20000; 
+}
+
+.grid-light-green {
+    background-color: #BBD5EE;
+}
+
+.grid-light-orange {
+    background-color: #E46D0A;
+}
+
+.grid-light-orange-select {
+    background-color: #FAC090;
+}
+
+/*列表标题加粗、置中显示*/
+div.x-grid3-hd-inner{
+    font-weight: bold;
+    text-align: center;
+}
+
+/*解决部分IE浏览器下输入框没有上下边框的问题*/
+.x-form-text.x-form-field{
+    /*margin-top:0px !important;  
+    margin-bottom:0px !important;*/
+}
+
+/*解决chrome浏览器下被激活tab标签有滚动条的问题*/
+.x-tab-with-icon.x-tab-strip-active{
+	overflow-y:hidden;
+}
+
+/*界面上的 X 替换为 返回 按钮
+.x-tool.x-tool-close{
+	margin-left: 0;
+	width: 16px;
+	height: 16px;
+	background-image: url('../images/btn-no-blue.png') !important;
+}*/
+/*界面上的 X 替换为 返回 按钮 聚焦时的样式
+.x-tool.x-tool-close.x-tool-close-over{
+	background-position: 0 0;
+	background-image: url('../images/btn-no.png') !important;
+}*/
+
+

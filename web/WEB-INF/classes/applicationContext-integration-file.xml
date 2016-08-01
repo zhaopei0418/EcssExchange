@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:integration="http://www.springframework.org/schema/integration"
+	xmlns:file="http://www.springframework.org/schema/integration/file"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+			http://www.springframework.org/schema/task 
+	        http://www.springframework.org/schema/task/spring-task-3.2.xsd
+			http://www.springframework.org/schema/integration
+			http://www.springframework.org/schema/integration/spring-integration-2.2.xsd
+			http://www.springframework.org/schema/integration/file
+			http://www.springframework.org/schema/integration/file/spring-integration-file-2.2.xsd">
+ 
+    <task:executor id="executor" pool-size="10"/>
+    
+    <!-- 接收文件备份通道适配：将本系统接收的文件备份到${ReceiveBackupFolder}文件夹 -->
+	<file:outbound-channel-adapter id="fileReceiveBackupChannelAdapter" channel="receiveBackupChannel" filename-generator="receiveFileNameGenerator"  directory-expression="@fileParameter.getReceiveBackupDirectoryDaily()"/>	
+	<!-- 发送文件备份通道适配：将由本系统发送的文件备份到${SendBackupFolder}文件夹 -->
+	<file:outbound-channel-adapter id="fileSendBackupChannelAdapter"  channel="sendBackupChannel" filename-generator="sendFileNameGenerator" directory-expression="@fileParameter.getSendBackupDirectoryDaily()"/>	
+	<!-- 接收文件处理出错备份通道适配：将本系统接收的文件备份到${ReceiveBackupFolder}/error文件夹 -->
+	<file:outbound-channel-adapter id="fileReceiveErrorChannelAdapter" channel="receiveErrorChannel" filename-generator="receiveFileNameGenerator" directory-expression="@fileParameter.getReceiveErrorDirectoryDaily()"/>	
+	<!-- 发送文件处理出错备份通道适配：将由本系统发送的文件备份到${SendBackupFolder}/error文件夹 -->
+	<file:outbound-channel-adapter id="fileSendErrorBackupChannelAdapter" channel="sendErrorChannel" filename-generator="sendFileNameGenerator" directory-expression="@fileParameter.getSendErrorDirectoryDaily()"/>	
+
+    <!-- 文件接收通道适配：轮训方式从${ReceiveFolder}接收文件 -->
+    <integration:channel id="receiveFileChannel" />
+	<file:inbound-channel-adapter id="fileReceiveChannelAdapter" channel="receiveFileChannel"  directory="#{fileParameter.getReceiveFolder()}" filename-pattern="*.xml"  prevent-duplicates="false">  
+	    <integration:poller id="poller" max-messages-per-poll="100" fixed-rate="2" />
+	</file:inbound-channel-adapter>
+	<file:file-to-bytes-transformer input-channel="receiveFileChannel" output-channel="receiveChannel" delete-files="true" />
+	
+	
+	<!-- 文件输出通道适配：事件驱动方式接收待导出的文件，发送到份到${SendFolder}文件夹 -->
+	<file:outbound-channel-adapter id="fileSendChannelAdapter" channel="sendChannel" filename-generator="sendFileNameGenerator"   directory-expression="@fileParameter.getSendFolder()+'/'+ headers.receiver"/>	
+    
+    <!-- 接收发送备份等目录参数配置对象 -->
+    <bean id="fileParameter" class="com.cneport.tophare.integration.config.FileParameter">
+         <property name="sendFolder" value="${SendFolder}" />
+         <property name="receiveFolder" value="${ReceiveFolder}" />
+         <property name="sendBackupFolder" value="${SendBackupFolder}" />
+         <property name="receiveBackupFolder" value="${ReceiveBackupFolder}" />
+         <property name="errorFolder" value="error" />
+         <property name="dataFormat" value="yyyyMMdd" />
+    </bean>
+   
+   
+   <bean id="receiveFileNameGenerator" class="com.cneport.tophare.integration.config.DefaultFileNameGenerator">
+         <property name="prefix" value="FILE_RECEIVE_" />
+         <property name="suffix" value=".xml" />
+         <property name="useUUID" value="false" />
+   </bean>
+   <bean id="sendFileNameGenerator" class="com.cneport.tophare.integration.config.DefaultFileNameGenerator">
+         <property name="prefix" value="FILE_SEND_" />
+         <property name="suffix" value=".xml" />
+         <property name="useUUID" value="false" />
+    </bean>
+</beans>

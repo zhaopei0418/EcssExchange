@@ -1,0 +1,1 @@
+package com.cneport.ecss.exchange.service.perInfo.persistence;import com.cneport.ecss.exchange.service.perInfo.entity.PerInfoHead;public abstract interface PerInfoMapper{  public abstract int countPerInfo(String paramString);  public abstract void insertPerInfo(PerInfoHead paramPerInfoHead);}
