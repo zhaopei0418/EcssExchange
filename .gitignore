@@ -1,15 +1,22 @@
 /bin/
 *.DS_Store
 /build
+/target
+/.gradle
+/.gradle*
 /out
 /.idea
 #/.settings
 /work
-web/.idea/
+WebContent/.idea/
 *.log
 *.log.*
+*.swp
 
 *.class
+/.settings
+.project
+.classpath
 
 # Package Files #
 *.war

@@ -188,50 +188,53 @@ public class GoodsService {
 
 				goodsList.setShelfGoodsName(ExcelUtil.replaceValue(row
 						.getCell(7), 250, "商品上架品名", map, true));
-				goodsList.setDescribe(ExcelUtil.replaceValue(row.getCell(8),
+				goodsList.setShelfGoodsNameForeign(ExcelUtil.replaceValue(row
+						.getCell(8), 250, "商品上架外文品名", map, true));
+				goodsList.setDescribe(ExcelUtil.replaceValue(row.getCell(9),
 						250, "商品描述", map));
-				goodsList.setCodeTs(ExcelUtil.replaceValue(row.getCell(9), 14,
+				goodsList.setCodeTs(ExcelUtil.replaceValue(row.getCell(10), 14,
 						"HS编码", map));
-				goodsList.setGoodsName(ExcelUtil.replaceValue(row.getCell(10),
+				goodsList.setGoodsName(ExcelUtil.replaceValue(row.getCell(11),
 						250, "申报品名", map));
-				goodsList.setGoodsModel(ExcelUtil.replaceValue(row.getCell(11),
+				goodsList.setGoodsModel(ExcelUtil.replaceValue(row.getCell(12),
 						250, "规格型号", map));
 
-				goodsList.setUnit(ExcelUtil.replaceValue(row.getCell(12), 10,
+				goodsList.setUnit(ExcelUtil.replaceValue(row.getCell(13), 3,
 						"计量单位", map, true));
-				goodsList.setCountry(ExcelUtil.replaceValue(row.getCell(13), 3,
+				goodsList.setUnit1(ExcelUtil.replaceValue(row
+						.getCell(14), 3, "法定第一计量单位", map,true));
+				goodsList.setUnit2(ExcelUtil.replaceValue(row
+						.getCell(15), 3, "法定第二计量单位", map));
+				goodsList.setCountry(ExcelUtil.replaceValue(row.getCell(16), 3,
 						"原产国", map, true));
 
 				goodsList.setPrice(new BigDecimal(ExcelUtil.replaceValue(row
-						.getCell(14), 19, "备案价格", map, true)));
-				goodsList.setCurrency(ExcelUtil.replaceValue(row.getCell(15),
+						.getCell(17), 19, "备案价格", map, true)));
+				goodsList.setCurrency(ExcelUtil.replaceValue(row.getCell(18),
 						3, "币制", map, true));
-				goodsList.setImage(ExcelUtil.replaceValue(row.getCell(16),
+				goodsList.setImage(ExcelUtil.replaceValue(row.getCell(19),
 						1024, "商品图片", map));
-				goodsList.setBarCode(ExcelUtil.replaceValue(row.getCell(17),
+				goodsList.setBarCode(ExcelUtil.replaceValue(row.getCell(20),
 						40, "商品条形码", map));
-				goodsList.setTaxCode(ExcelUtil.replaceValue(row.getCell(18), 8,
+				goodsList.setTaxCode(ExcelUtil.replaceValue(row.getCell(21), 8,
 						"行邮税号", map));
 
-				goodsList.setEcpCode(ExcelUtil.replaceValue(row.getCell(19),
+				goodsList.setEcpCode(ExcelUtil.replaceValue(row.getCell(22),
 						20, "电商平台代码", map));
-				goodsList.setEcpName(ExcelUtil.replaceValue(row.getCell(20),
+				goodsList.setEcpName(ExcelUtil.replaceValue(row.getCell(23),
 						100, "电商平台名称", map));
 
-				goodsList.setIsTax(ExcelUtil.replaceValue(row.getCell(21), 1,
+				goodsList.setIsTax(ExcelUtil.replaceValue(row.getCell(24), 1,
 						"是否涉出口税", map));
 				goodsList.setSuperviseId(ExcelUtil.replaceValue(
-						row.getCell(22), 30, "监管证件代码", map));
-				goodsList.setItemNo(ExcelUtil.replaceValue(row.getCell(23),
+						row.getCell(25), 30, "监管证件代码", map));
+				goodsList.setItemNo(ExcelUtil.replaceValue(row.getCell(26),
 						100, "海关备案商品编号", map));
 				goodsList.setLimitationGoodsCode(ExcelUtil.replaceValue(row
-						.getCell(24), 20, "限制商品编码", map));
+						.getCell(27), 20, "限制商品编码", map));
 				goodsList.setBatchNumbers(ExcelUtil.replaceValue(row
-						.getCell(25), 100, "批次号", map));
-				goodsList.setUnit1(ExcelUtil.replaceValue(row
-						.getCell(26), 3, "法定第一单位", map,true));
-				goodsList.setUnit2(ExcelUtil.replaceValue(row
-						.getCell(27), 3, "法定第二单位", map));
+						.getCell(28), 100, "批次号", map));
+				
 				if (ExcelUtil.rowIsNull(goodsList)) {
 					return;
 				}
