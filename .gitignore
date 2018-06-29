@@ -17,6 +17,7 @@ WebContent/.idea/
 /.settings
 .project
 .classpath
+web/WEB-INF/classes
 
 # Package Files #
 *.war
