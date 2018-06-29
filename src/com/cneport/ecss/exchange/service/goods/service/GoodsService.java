@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.cneport.ecss.exchange.common.ExcelController;
 import com.cneport.ecss.exchange.common.ExcelUtil;
 import com.cneport.ecss.exchange.service.entity.Goods;
 import com.cneport.ecss.exchange.service.entity.GoodsHead;
@@ -24,13 +23,13 @@ import com.cneport.ecss.user.User;
 @Service
 public class GoodsService {
 
-	// @Autowired
+	@Autowired
 	private GoodsMapper goodsMapper;
 
 	@Autowired
 	private XmlMessageSender xmlMessageSender;
 	
-	private static final Logger log = Logger.getLogger(ExcelController.class);
+	private static final Logger log = Logger.getLogger(GoodsService.class);
 
 	@Transactional
 	public void impGoods(Sheet sheet, Map<String, String> map) throws Exception {
@@ -140,9 +139,13 @@ public class GoodsService {
 		int amount = 0;
 		int count = 0;
 		String cbeCode = null;
+		String applyCode = null;
+		String dbApplyCode = null;
+		String[] cebApplyCodes = null;
 		String orgId = user.getOrgId();
 		map.put("error", map.get("error") + "=========导入备案商品信息=========一共" + sheet.getLastRowNum() + "行数据\n");
 		for (int rowNum = 1; rowNum <= sheet.getLastRowNum(); rowNum++) {
+			/*
 			if (!orgId.equals(ExcelUtil.replaceValue(sheet.getRow(rowNum)
 					.getCell(0), 10, "仓储代码", map, true))
 					&& !orgId.equals(ExcelUtil.replaceValue(sheet
@@ -150,6 +153,24 @@ public class GoodsService {
 							true))) {
 				throw new Exception("您导入的不是您代理企业的数据或者您自己企业的数据！！\n错误数据的行数："+rowNum+1);
 			}
+			*/
+			cbeCode = ExcelUtil.replaceValue(sheet.getRow(rowNum).getCell(0), 10, "电商代码", map, true);
+			applyCode = ExcelUtil.replaceValue(sheet.getRow(rowNum).getCell(2), 10, "代理申报企业代码", map, true);
+			dbApplyCode = goodsMapper.getApplyCode(cbeCode);
+			log.info("cbeCode:[" + cbeCode + "] applyCode:[" + applyCode + "] dbApplyCode:[" + dbApplyCode + "]");
+			if (null == dbApplyCode || dbApplyCode.equals(":")) {
+				throw new Exception("您导入的电商没有建立商品备案库，请先创建！！");
+			} else {
+				cebApplyCodes = dbApplyCode.split(":");
+				if (!orgId.equals(cebApplyCodes[0]) && !orgId.equals(cebApplyCodes[1])) {
+					throw new Exception("您导入的不是您代理企业的数据或者您自己企业的数据！！");
+				}
+				
+				if (!orgId.equals(cbeCode) && !orgId.equals(applyCode)) {
+					throw new Exception("您导入的不是您代理企业的数据或者您自己企业的数据！！");
+				}
+			}
+			
 		}
 		for (int rowNum = 1; rowNum <= sheet.getLastRowNum(); rowNum++) {
 			Row row = sheet.getRow(rowNum);

@@ -2,7 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cneport.ecss.exchange.service.goods.persistence.GoodsMapper">
-  
+    <select id="getApplyCode" parameterType="String" resultType="String">
+        SELECT CBE_CODE || ':' || APPLY_CODE FROM PRE_GOODS_HEAD WHERE CBE_CODE=#{cbeCode}
+    </select>
+    <!--  
       <select id="countGoodsHead" parameterType="Map" resultType="int">
   		SELECT count(*)  FROM GOODS_HEAD where APPLY_CODE=#{HApplyCode} and IE_TYPE=#{HIEType}
   		</select>
@@ -37,5 +40,5 @@
 		  #{LUnit},#{LTaxCode},#{LPrice},#{LEcpCode},#{LEcpName},#{LDescribe},#{LCountry},
 		  #{LImage},#{LBarCode},#{LShelfGoodsName},#{LSuperviseId},#{LIsTax})
 	</insert>
-	
+	-->
 </mapper>
