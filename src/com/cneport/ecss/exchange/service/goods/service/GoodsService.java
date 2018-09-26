@@ -218,7 +218,7 @@ public class GoodsService {
 				goodsList.setGoodsName(ExcelUtil.replaceValue(row.getCell(11),
 						250, "申报品名", map));
 				goodsList.setGoodsModel(ExcelUtil.replaceValue(row.getCell(12),
-						250, "规格型号", map));
+						510, "规格型号", map));
 
 				goodsList.setUnit(ExcelUtil.replaceValue(row.getCell(13), 3,
 						"计量单位", map, true));
