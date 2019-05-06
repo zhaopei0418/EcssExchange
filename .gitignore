@@ -6,6 +6,7 @@
 /.gradle*
 /out
 /.idea
+*.iml
 #/.settings
 /work
 WebContent/.idea/

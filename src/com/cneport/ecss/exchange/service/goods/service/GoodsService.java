@@ -212,7 +212,7 @@ public class GoodsService {
 				goodsList.setShelfGoodsNameForeign(ExcelUtil.replaceValue(row
 						.getCell(8), 250, "商品上架外文品名", map, false));
 				goodsList.setDescribe(ExcelUtil.replaceValue(row.getCell(9),
-						250, "商品描述", map));
+						1000, "商品描述", map));
 				goodsList.setCodeTs(ExcelUtil.replaceValue(row.getCell(10), 14,
 						"HS编码", map));
 				goodsList.setGoodsName(ExcelUtil.replaceValue(row.getCell(11),
