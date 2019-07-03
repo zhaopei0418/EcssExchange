@@ -5,6 +5,8 @@ import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 import org.apache.poi.ss.usermodel.Cell;
@@ -129,7 +131,7 @@ public class ExcelUtil {
 	if (value != null) {
 	    if (value.getBytes().length > length) {
 		map.put("success", "false");
-		log.debug(columnName + "超过长度");
+		log.debug("当前长度: [" + value.getBytes().length + "] 限制长度: [" + length  + "] " + columnName + "超过长度");
 		// 新增
 		throw new Exception(columnName + "超过长度");
 	    }
@@ -167,7 +169,38 @@ public class ExcelUtil {
 	return value;
 
     }
-    
+
+	public static String replaceValue(Cell cell, int length, String columnName,
+									  Map<String, String> map, boolean isRequired, boolean isNumber,
+									boolean isFixed) throws Exception {
+		if (isNumber) {
+			Pattern pattern = null;
+			if (isFixed) {
+				pattern = Pattern.compile("^[0-9]{" + length + "}$");
+			} else {
+				pattern = Pattern.compile("^[0-9]{1," + length + "}$");
+			}
+			String value = ExcelUtil.replaceValue(cell);
+			if (isRequired && "".equals(value)) {
+				map.put("success", "false");
+				throw new Exception(columnName + "为必填项！");
+			}
+			if (!"".equals(value)) {
+				Matcher matcher = pattern.matcher(value);
+				if (!matcher.find()) {
+					map.put("success", "false");
+					if (isFixed) {
+						throw new Exception(columnName + "必须为" + length + "位的数字!");
+					} else {
+						throw new Exception(columnName + "必须为最大" + length + "位的数字!");
+					}
+				}
+			}
+		}
+
+    	return ExcelUtil.replaceValue(cell, length, columnName, map, isRequired);
+	}
+
     public static String replaceValue(Cell cell, int length, String columnName,
     	    Map<String, String> map, int maxPointLength, boolean isRequired) throws Exception {
     	String value = "";
@@ -235,4 +268,18 @@ public class ExcelUtil {
     	return value;
 
         }
+
+//        public static void main(String[] argc) {
+//			boolean isFixed = false;
+//			int length = 3;
+//			String value = "0";
+//			Pattern pattern = null;
+//			if (isFixed) {
+//				pattern = Pattern.compile("^[0-9]{" + length + "}$");
+//			} else {
+//				pattern = Pattern.compile("^[0-9]{1," + length + "}$");
+//			}
+//			Matcher matcher = pattern.matcher(value);
+//			System.out.println(matcher.find());
+//		}
 }

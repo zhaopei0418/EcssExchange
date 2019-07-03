@@ -221,18 +221,18 @@ public class GoodsService {
 						510, "规格型号", map));
 
 				goodsList.setUnit(ExcelUtil.replaceValue(row.getCell(13), 3,
-						"计量单位", map, true));
+						"计量单位", map, true, true, true));
 				goodsList.setUnit1(ExcelUtil.replaceValue(row
-						.getCell(14), 3, "法定第一计量单位", map,true));
+						.getCell(14), 3, "法定第一计量单位", map,true, true, true));
 				goodsList.setUnit2(ExcelUtil.replaceValue(row
-						.getCell(15), 3, "法定第二计量单位", map));
+						.getCell(15), 3, "法定第二计量单位", map, false, true, true));
 				goodsList.setCountry(ExcelUtil.replaceValue(row.getCell(16), 3,
-						"原产国", map, true));
+						"原产国", map, true, true, true));
 
 				goodsList.setPrice(new BigDecimal(ExcelUtil.replaceValue(row
 						.getCell(17), 19, "备案价格", map, true)));
 				goodsList.setCurrency(ExcelUtil.replaceValue(row.getCell(18),
-						3, "币制", map, true));
+						3, "币制", map, true, true, true));
 				goodsList.setImage(ExcelUtil.replaceValue(row.getCell(19),
 						1024, "商品图片", map));
 				goodsList.setBarCode(ExcelUtil.replaceValue(row.getCell(20),
