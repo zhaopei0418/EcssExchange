@@ -123,7 +123,7 @@ public class ExcelUtil {
 	    } else*/ {
 		value = cell.getStringCellValue();
 		if (value != null) {
-		    value = value.trim().replace("'", "");
+		    value = value.trim();
 		}
 	    }
 	}
@@ -149,7 +149,7 @@ public class ExcelUtil {
 		value = cell.getStringCellValue();
 		
 		if (value != null) {
-		    value = value.trim().replace("'", "");
+		    value = value.trim();
 		}
 	    }
 	}
@@ -211,7 +211,7 @@ public class ExcelUtil {
     		value = cell.getStringCellValue();
     		
     		if (value != null) {
-    		    value = value.trim().replace("'", "");
+    		    value = value.trim();
     		}
     	    }
     	}
@@ -269,7 +269,7 @@ public class ExcelUtil {
 
         }
 
-//        public static void main(String[] argc) {
+        public static void main(String[] argc) {
 //			boolean isFixed = false;
 //			int length = 3;
 //			String value = "0";
@@ -281,5 +281,6 @@ public class ExcelUtil {
 //			}
 //			Matcher matcher = pattern.matcher(value);
 //			System.out.println(matcher.find());
-//		}
+            System.out.println("3282779073578&3282779074578&3282779184410".getBytes().length);
+		}
 }
